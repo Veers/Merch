@@ -1,0 +1,7 @@
+merch_goods_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MerchGoodsBundle:Default:index }
+
+MerchGoodsBundle_merch:
+    resource: "@MerchGoodsBundle/Resources/config/routing/merch.yml"
+    prefix: /

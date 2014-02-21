@@ -1,0 +1,42 @@
+
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <h1>Merch list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Info</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.price }}</td>
+                <td>{{ entity.info }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('merch_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('merch_delete', { 'id': entity.id }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href=" {{ path('merch_new') }}">Add new item</a>
+        </li>
+    </ul>
+{% endblock %}

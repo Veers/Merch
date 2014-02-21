@@ -1,0 +1,19 @@
+Merch\GoodsBundle\Entity\Merch:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        title:
+            type: string
+            length: 255
+        price:
+            type: integer
+        info:
+            type: text
+        isdeleted:
+            type: boolean
+    lifecycleCallbacks: {  }

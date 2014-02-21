@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Merch edit</h1>
+
+    {{ form_start(edit_form) }}
+    {{ form_errors(edit_form) }}
+
+    <div>
+        {{ form_label(edit_form.title) }}
+        {{ form_errors(edit_form.title) }}
+        {{ form_widget(edit_form.title, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div>
+        {{ form_label(edit_form.price) }}
+        {{ form_errors(edit_form.price) }}
+        {{ form_widget(edit_form.price, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div>
+        {{ form_label(edit_form.info) }}
+        {{ form_errors(edit_form.info) }}
+        {{ form_widget(edit_form.info, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('merch') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %}

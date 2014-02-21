@@ -1,0 +1,35 @@
+merch:
+    pattern:  /
+    defaults: { _controller: "MerchGoodsBundle:Merch:index" }
+
+merch_show:
+    pattern:  /show/{id}
+    defaults: { _controller: "MerchGoodsBundle:Merch:show" }
+
+merch_new:
+    pattern:  /new
+    defaults: { _controller: "MerchGoodsBundle:Merch:new" }
+
+merch_create:
+    pattern:  /create
+    defaults: { _controller: "MerchGoodsBundle:Merch:create" }
+    requirements: { _method: post }
+
+merch_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: "MerchGoodsBundle:Merch:edit" }
+
+merch_update:
+    pattern:  /update/{id}
+    defaults: { _controller: "MerchGoodsBundle:Merch:update" }
+    requirements: { _method: post|put }
+
+merch_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: "MerchGoodsBundle:Merch:delete" }
+    requirements: { _method: post|delete }
+
+_merch_new_delete:
+    pattern: /delete/{id}
+    defaults: { _controller: "MerchGoodsBundle:Merch:newdelete" }
+    requirements: { _method: get|delete }
