@@ -6,11 +6,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Merch\GoodsBundle\Entity\Merch;
-#use Merch\GoodsBundle\Entity\User;
 
 use Merch\GoodsBundle\Form\MerchType;
 
-use FOS\UserBundle\Doctrine\UserManager;
 
 /**
  * Merch controller.
@@ -56,7 +54,6 @@ class MerchController extends Controller
 
             return $this->redirect($this->generateUrl('merch_show', array('id' => $entity->getId())));
         }
-
 
         return $this->render('MerchGoodsBundle:Merch:new.html.twig', array(
             'entity' => $entity,
@@ -203,11 +200,13 @@ class MerchController extends Controller
         $entity = $em->getRepository('MerchGoodsBundle:Merch')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Metch entity');
+            throw $this->createNotFoundException('Unable to find Merch entity');
         }
 
         $deleteForm = $this->createDeleteForm($id);
+
         $editForm = $this->createEditForm($entity);
+
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
@@ -227,6 +226,7 @@ class MerchController extends Controller
      * Deletes a Merch entity.
      *
      */
+
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
@@ -242,7 +242,6 @@ class MerchController extends Controller
 
             $entity->setIsdeleted(1);
 
-            #$em->remove($entity);
             $em->flush();
         }
 
